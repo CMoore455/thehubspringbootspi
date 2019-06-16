@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="gridFsTemplate" class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+	    <constructor-arg ref="mongoDbFactory" />
+	    <constructor-arg ref="mongoConverter" />
+	</bean>
+	<mongo:db-factory id="mongoDbFactory" dbname="thehubuserimages" mongo-ref="mongoClient" />
+ 
+<mongo:mapping-converter id="mongoConverter" base-package="org.baeldung.converter">
+    <mongo:custom-converters base-package="org.baeldung.converter"/>
+</mongo:mapping-converter>
+</beans>
